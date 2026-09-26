@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111827">
+<title>بطاقة أعمال رقمية</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; font-family:Tahoma,Arial,sans-serif;
+  background:linear-gradient(145deg,#eef2ff,#f8fafc);
+  color:#111827; display:flex; justify-content:center; padding:22px 14px;
+}
+.card{
+  width:100%; max-width:430px; background:#fff; border-radius:28px;
+  overflow:hidden; box-shadow:0 18px 50px rgba(15,23,42,.13);
+}
+.cover{height:125px;background:linear-gradient(135deg,#111827,#374151)}
+.profile{text-align:center;margin-top:-52px;padding:0 22px 25px}
+.avatar{
+  width:104px;height:104px;border-radius:50%;background:#fff;
+  margin:auto;padding:5px;box-shadow:0 8px 25px rgba(0,0,0,.15)
+}
+.avatar div{
+  width:100%;height:100%;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;background:#e5e7eb;font-size:38px;font-weight:bold;color:#374151
+}
+h1{font-size:25px;margin:15px 0 6px}
+.role{color:#6b7280;font-size:15px}
+.company{font-weight:bold;margin-top:7px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.btn{
+  text-decoration:none;border:0;border-radius:14px;padding:13px 10px;
+  font-size:15px;font-weight:bold;cursor:pointer;text-align:center;
+}
+.primary{grid-column:1/-1;background:#111827;color:#fff}
+.light{background:#f3f4f6;color:#111827}
+.info{padding:0 22px 25px}
+.row{
+  display:flex;align-items:center;gap:12px;padding:14px 0;
+  border-top:1px solid #eef0f3;
+}
+.icon{
+  width:40px;height:40px;border-radius:12px;background:#f3f4f6;
+  display:flex;align-items:center;justify-content:center;font-size:19px
+}
+.row a{color:#111827;text-decoration:none;word-break:break-word}
+.label{font-size:12px;color:#9ca3af;margin-bottom:3px}
+.value{font-size:15px}
+.formbox{margin:0 22px 22px;padding:18px;border-radius:18px;background:#f8fafc}
+.formbox h2{font-size:17px;margin:0 0 8px}
+.formbox p{font-size:13px;color:#6b7280;line-height:1.7;margin:0 0 13px}
+.formbtn{display:block;background:#111827;color:white;text-decoration:none;text-align:center;padding:12px;border-radius:12px;font-weight:bold}
+.footer{text-align:center;color:#9ca3af;font-size:11px;padding:0 20px 20px}
+</style>
+</head>
+<body>
+
+<main class="card">
+  <div class="cover"></div>
+
+  <section class="profile">
+    <div class="avatar"><div>م</div></div>
+    <h1>محمد أحمد</h1>
+    <div class="role">المدير التنفيذي</div>
+    <div class="company">اسم الشركة</div>
+
+    <div class="actions">
+      <button class="btn primary" onclick="saveContact()">＋ حفظ جهة الاتصال</button>
+      <a class="btn light" href="tel:+905551234567">☎ اتصال</a>
+      <a class="btn light" href="https://wa.me/905551234567" target="_blank">◉ واتساب</a>
+    </div>
+  </section>
+
+  <section class="info">
+    <div class="row">
+      <div class="icon">📞</div>
+      <div><div class="label">الهاتف</div><a class="value" href="tel:+905551234567">+90 555 123 4567</a></div>
+    </div>
+    <div class="row">
+      <div class="icon">✉️</div>
+      <div><div class="label">البريد الإلكتروني</div><a class="value" href="mailto:info@example.com">info@example.com</a></div>
+    </div>
+    <div class="row">
+      <div class="icon">🌐</div>
+      <div><div class="label">الموقع</div><a class="value" href="https://example.com" target="_blank">example.com</a></div>
+    </div>
+    <div class="row">
+      <div class="icon">📍</div>
+      <div><div class="label">العنوان</div><div class="value">إسطنبول، تركيا</div></div>
+    </div>
+  </section>
+
+  <section class="formbox">
+    <h2>هل ترغب بالتواصل معنا؟</h2>
+    <p>يمكنك تعبئة نموذج التواصل وسنعاود الاتصال بك.</p>
+    <a class="formbtn" href="https://docs.google.com/forms/" target="_blank">فتح نموذج التواصل</a>
+  </section>
+
+  <div class="footer">بطاقة أعمال رقمية</div>
+</main>
+
+<script>
+function saveContact(){
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+N:أحمد;محمد;;;
+FN:محمد أحمد
+ORG:اسم الشركة
+TITLE:المدير التنفيذي
+TEL;TYPE=CELL:+905551234567
+EMAIL:info@example.com
+URL:https://example.com
+ADR:;;إسطنبول;إسطنبول;;;تركيا
+END:VCARD`;
+
+  const blob = new Blob([vcard], {type:"text/vcard;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "محمد-أحمد.vcf";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
