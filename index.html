@@ -61,65 +61,64 @@ h1{font-size:25px;margin:15px 0 6px}
   <div class="cover"></div>
 
   <section class="profile">
-    <div class="avatar"><div>م</div></div>
-    <h1>محمد أحمد</h1>
-    <div class="role">المدير التنفيذي</div>
-    <div class="company">اسم الشركة</div>
+    <div class="avatar"><div>الحلاق</div></div>
+    <h1>شركة الحلاق التجارية </h1>
+    <div class="role">فرع ادلب </div>
+    <div class="company">شركة الحلاق </div>
 
     <div class="actions">
       <button class="btn primary" onclick="saveContact()">＋ حفظ جهة الاتصال</button>
-      <a class="btn light" href="tel:+905551234567">☎ اتصال</a>
-      <a class="btn light" href="https://wa.me/905551234567" target="_blank">◉ واتساب</a>
+      <a class="btn light" href="tel:+963932688788">☎ اتصال</a>
+      <a class="btn light" href="https://wa.me/+963932688788" target="_blank">◉ واتساب</a>
     </div>
   </section>
 
   <section class="info">
     <div class="row">
       <div class="icon">📞</div>
-      <div><div class="label">الهاتف</div><a class="value" href="tel:+905551234567">+90 555 123 4567</a></div>
+      <div><div class="label">الهاتف</div><a class="value" href="tel:+963932688788">+963 932 688 788</a></div>
     </div>
     <div class="row">
       <div class="icon">✉️</div>
-      <div><div class="label">البريد الإلكتروني</div><a class="value" href="mailto:info@example.com">info@example.com</a></div>
+      <div><div class="label">البريد الإلكتروني</div><a class="value" href="mohammad267052@gmail.com">email</a></div>
     </div>
     <div class="row">
       <div class="icon">🌐</div>
-      <div><div class="label">الموقع</div><a class="value" href="https://example.com" target="_blank">example.com</a></div>
+      <div><div class="label">الموقع</div><a class="value" href="soon" target="_blank">قريبااا</a></div>
     </div>
     <div class="row">
       <div class="icon">📍</div>
-      <div><div class="label">العنوان</div><div class="value">إسطنبول، تركيا</div></div>
+      <div><div class="label">العنوان</div><div class="value">سوريا ادلب</div></div>
     </div>
   </section>
 
   <section class="formbox">
     <h2>هل ترغب بالتواصل معنا؟</h2>
     <p>يمكنك تعبئة نموذج التواصل وسنعاود الاتصال بك.</p>
-    <a class="formbtn" href="https://docs.google.com/forms/" target="_blank">فتح نموذج التواصل</a>
+    <a class="formbtn" href="قريباااا" target="_blank">فتح نموذج التواصل</a>
   </section>
 
-  <div class="footer">بطاقة أعمال رقمية</div>
+  <div class="footer">بطاقة أعمال شركة الحلاق</div>
 </main>
 
 <script>
 function saveContact(){
   const vcard = `BEGIN:VCARD
 VERSION:3.0
-N:أحمد;محمد;;;
-FN:محمد أحمد
-ORG:اسم الشركة
-TITLE:المدير التنفيذي
-TEL;TYPE=CELL:+905551234567
+N:أحمد;حلاق;;;
+FN:احمد حلاق
+ORG:شركة الحلاق التجارية 
+TEL;TYPE=CELL:+963932688788
 EMAIL:info@example.com
 URL:https://example.com
-ADR:;;إسطنبول;إسطنبول;;;تركيا
+ADR:;;ادلب;ادلب;;;سوريا
 END:VCARD`;
 
   const blob = new Blob([vcard], {type:"text/vcard;charset=utf-8"});
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "محمد-أحمد.vcf";
+  a.download = "احمد-حلاق.vcf";
   document.body.appendChild(a);
   a.click();
   a.remove();
